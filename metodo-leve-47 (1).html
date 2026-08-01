@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Método Leve 47 - Emagreça com Saúde e Leveza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #4CAF50;
+      --green-dark: #388E3C;
+      --green-light: #E8F5E9;
+      --green-mid: #C8E6C9;
+      --navy: #243B53;
+      --navy-light: #3a5470;
+      --gray-bg: #F7F8FA;
+      --gray-light: #ECECEC;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(36,59,83,0.10);
+      --shadow-lg: 0 8px 40px rgba(36,59,83,0.15);
+      --radius: 14px;
+      --radius-lg: 22px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      background: var(--green);
+      color: #fff;
+      text-align: center;
+      padding: 11px 20px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(76,175,80,0.18);
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-light);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--green); }
+    .header-trust {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--navy-light);
+      background: var(--green-light);
+      border: 1px solid var(--green-mid);
+      border-radius: 50px;
+      padding: 6px 16px;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 17px 44px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.22s, transform 0.18s, box-shadow 0.22s;
+      box-shadow: 0 6px 24px rgba(76,175,80,0.28);
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+    .btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(76,175,80,0.38);
+    }
+    .btn-lg {
+      font-size: 1.18rem;
+      padding: 20px 56px;
+    }
+    .btn-pulse {
+      animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(76,175,80,0.28); }
+      50% { box-shadow: 0 10px 40px rgba(76,175,80,0.48); }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--white) 55%, var(--green-light) 100%);
+      padding: 80px 40px 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .hero-content { max-width: 560px; }
+    .badge {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.18;
+      color: var(--navy);
+      margin-bottom: 22px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em {
+      color: var(--green);
+      font-style: normal;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--navy-light);
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy-light);
+    }
+    .hero-visual {
+      width: 340px;
+      max-width: 100%;
+      flex-shrink: 0;
+    }
+    .ebook-mockup {
+      width: 100%;
+      background: linear-gradient(145deg, var(--green) 0%, #2e7d32 100%);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg), 12px 12px 0 var(--green-mid);
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 28px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ebook-mockup::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+    .ebook-mockup::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .ebook-mockup .ebook-icon { font-size: 3.5rem; margin-bottom: 16px; }
+    .ebook-mockup h2 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .ebook-mockup p { font-size: 0.85rem; opacity: 0.88; line-height: 1.5; }
+    .ebook-price {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 10px 24px;
+    }
+    .ebook-price .old { font-size: 0.78rem; opacity: 0.7; text-decoration: line-through; }
+    .ebook-price .new { font-size: 1.5rem; font-weight: 800; }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 80px 20px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.22;
+      color: var(--navy);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--navy-light);
+      max-width: 600px;
+      margin: 0 auto 56px;
+      line-height: 1.75;
+    }
+
+    /* ─── BENEFITS ─── */
+    .benefits { background: var(--gray-bg); }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .benefit-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px 26px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--green);
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .benefit-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .benefit-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+    .benefit-card p { font-size: 0.88rem; color: var(--navy-light); line-height: 1.68; }
+
+    /* ─── HOW IT WORKS ─── */
+    .how { background: var(--white); }
+    .steps { display: flex; flex-direction: column; gap: 20px; max-width: 720px; margin: 0 auto; }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 22px;
+      background: var(--green-light);
+      border-radius: var(--radius);
+      padding: 26px 28px;
+      border-left: 5px solid var(--green);
+    }
+    .step-num {
+      background: var(--green);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-content h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .step-content p { font-size: 0.88rem; color: var(--navy-light); line-height: 1.65; }
+
+    /* ─── FOR WHOM ─── */
+    .for-whom { background: var(--navy); }
+    .for-whom .section-title, .for-whom .section-label, .for-whom .section-sub { color: #fff; }
+    .for-whom .section-label { color: var(--green); }
+    .for-whom .section-sub { color: rgba(255,255,255,0.7); }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .audience-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      transition: background 0.22s, transform 0.22s;
+    }
+    .audience-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+    .audience-card .aud-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .audience-card h3 { font-size: 0.98rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .audience-card p { font-size: 0.83rem; color: rgba(255,255,255,0.68); line-height: 1.6; }
+
+    /* ─── WHAT YOU GET ─── */
+    .what-you-get { background: var(--gray-bg); }
+    .deliverables {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .deliverable {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: var(--shadow);
+    }
+    .deliverable .check {
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 1.1rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 800;
+    }
+    .deliverable h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .deliverable p { font-size: 0.82rem; color: var(--navy-light); line-height: 1.6; }
+
+    /* ─── TRANSFORMATION ─── */
+    .transformation { background: linear-gradient(135deg, var(--green-light) 0%, var(--white) 100%); }
+    .transform-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .transform-col {
+      border-radius: var(--radius);
+      padding: 32px 28px;
+    }
+    .transform-col.before {
+      background: #fef2f2;
+      border: 1.5px solid #fecaca;
+    }
+    .transform-col.after {
+      background: var(--green-light);
+      border: 1.5px solid var(--green-mid);
+    }
+    .transform-col h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .transform-col.before h3 { color: #b91c1c; }
+    .transform-col.after h3 { color: var(--green-dark); }
+    .transform-col ul { list-style: none; }
+    .transform-col ul li {
+      font-size: 0.88rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .transform-col.before ul li::before { content: '✗'; color: #ef4444; position: absolute; left: 0; font-weight: 700; }
+    .transform-col.after ul li::before { content: '✓'; color: var(--green); position: absolute; left: 0; font-weight: 700; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { background: var(--white); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--gray-bg);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative;
+      border: 1.5px solid var(--gray-light);
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--green-mid);
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--green-mid);
+      font-family: Georgia, serif;
+      font-weight: 700;
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+    .testimonial-stars span {
+      font-size: 1.1rem;
+      color: #f59e0b;
+    }
+    .testimonial-text {
+      font-size: 0.93rem;
+      color: var(--navy);
+      line-height: 1.75;
+      margin-bottom: 22px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .author-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      box-shadow: 0 3px 10px rgba(76,175,80,0.25);
+    }
+    .author-info strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .author-info span {
+      font-size: 0.78rem;
+      color: var(--navy-light);
+    }
+    .testimonials-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 52px;
+      padding: 32px 40px;
+      background: var(--green-light);
+      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--green-mid);
+    }
+    .summary-stat { text-align: center; }
+    .summary-stat .stat-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--green-dark);
+      line-height: 1;
+      display: block;
+    }
+    .summary-stat .stat-label {
+      font-size: 0.8rem;
+      color: var(--navy-light);
+      font-weight: 500;
+      margin-top: 4px;
+      display: block;
+    }
+    .summary-divider {
+      width: 1px;
+      height: 50px;
+      background: var(--green-mid);
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .cta-section p { color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 36px; }
+    .price-box {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-lg);
+      padding: 28px 48px;
+      margin-bottom: 36px;
+    }
+    .price-box .from { font-size: 0.82rem; color: rgba(255,255,255,0.65); text-decoration: line-through; }
+    .price-box .to { font-size: 3rem; font-weight: 900; color: #fff; line-height: 1; }
+    .price-box .to small { font-size: 1rem; font-weight: 500; }
+    .price-box .once { font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 4px; }
+    .cta-section .btn { background: #fff; color: var(--green-dark); font-size: 1.15rem; }
+    .cta-section .btn:hover { background: var(--green-light); color: var(--green-dark); transform: translateY(-2px); }
+    .cta-trust {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .cta-trust span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+
+    /* ─── TRUST ─── */
+    .trust { background: var(--white); }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .trust-item {
+      text-align: center;
+      padding: 32px 20px;
+      border: 1.5px solid var(--green-mid);
+      border-radius: var(--radius);
+      background: var(--green-light);
+      transition: transform 0.22s;
+    }
+    .trust-item:hover { transform: translateY(-3px); }
+    .trust-item .t-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .trust-item h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 6px; }
+    .trust-item p { font-size: 0.82rem; color: var(--navy-light); line-height: 1.6; }
+
+    /* ─── FAQ ─── */
+    .faq { background: var(--gray-bg); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--navy);
+      text-align: left;
+      transition: background 0.18s;
+    }
+    .faq-q:hover { background: var(--green-light); }
+    .faq-q .chevron {
+      font-size: 1.1rem;
+      color: var(--green);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .faq-q[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 26px 20px;
+      font-size: 0.88rem;
+      color: var(--navy-light);
+      line-height: 1.72;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.78rem;
+      line-height: 1.8;
+    }
+    footer strong { color: rgba(255,255,255,0.8); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      header { padding: 14px 20px; }
+      .hero { padding: 50px 20px; gap: 40px; }
+      .hero-visual { width: 280px; }
+      .transform-grid { grid-template-columns: 1fr; }
+      .price-box { padding: 22px 32px; }
+      .testimonials-summary { gap: 24px; padding: 24px; }
+      .summary-divider { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hero-meta { gap: 12px; }
+      .btn-lg { font-size: 1rem; padding: 17px 36px; }
+      .logo { font-size: 1.1rem; }
+      .header-trust { font-size: 0.75rem; padding: 5px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    🔥 Oferta por tempo limitado - de R$&nbsp;97,00 por apenas <strong>R$&nbsp;47,00 hoje!</strong>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Método <span>Leve 47</span></div>
+    <div class="header-trust">🔒 Compra 100% segura</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">📖 E-Book Digital &nbsp;•&nbsp; Acesso Imediato</div>
+      <h1>Emagreça com <em>saúde e leveza</em> sem dietas malucas.</h1>
+      <p>Descubra um método simples e sustentável que ajuda mulheres reais a criarem hábitos saudáveis, emagrecerem com equilíbrio e recuperarem a autoestima - sem passar fome e sem complicação.</p>
+      <a href="#cta" class="btn btn-lg btn-pulse">✨ Quero meu acesso agora</a>
+      <div class="hero-meta">
+        <span>✅ Acesso imediato após o pagamento</span>
+        <span>📱 Leia em qualquer dispositivo</span>
+        <span>🌿 Método para a vida real</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ebook-mockup">
+        <div class="ebook-icon">🍃</div>
+        <h2>Método<br/>Leve 47</h2>
+        <p>O guia completo para emagrecer com equilíbrio, leveza e sem abrir mão da vida</p>
+        <div class="ebook-price">
+          <div class="old">R$ 97,00</div>
+          <div class="new">R$ 47,00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="container">
+      <div class="section-label">Por que funciona</div>
+      <h2 class="section-title">Feito para a sua vida real - não para uma vida perfeita</h2>
+      <p class="section-sub">Chega de métodos que exigem horas de preparo, cardápios impossíveis e força de vontade sobre-humana. O Método Leve 47 foi criado para caber na sua rotina do jeito que ela é.</p>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">⏱️</div>
+          <h3>Encaixa na agenda lotada</h3>
+          <p>Estratégias que funcionam mesmo para quem tem pouco tempo. Sem receitas elaboradas nem horas de academia.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌱</div>
+          <h3>Hábitos que duram para sempre</h3>
+          <p>Em vez de dietas temporárias, você aprende a criar uma rotina sustentável que transforma de verdade - e permanece.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🧠</div>
+          <h3>Mindset antes de cardápio</h3>
+          <p>O método começa pela sua relação com a comida. Sem culpa, sem obsessão - com consciência e leveza.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🚀</div>
+          <h3>Resultados progressivos e reais</h3>
+          <p>Sem promessas mágicas. O progresso acontece com consistência, e o método guia você passo a passo para isso.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💚</div>
+          <h3>Saúde acima de tudo</h3>
+          <p>Emagrecer com saúde significa nutrir o corpo, não torturá-lo. Aqui, o seu bem-estar vem primeiro.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔰</div>
+          <h3>Perfeito para iniciantes</h3>
+          <p>Linguagem simples, sem jargões técnicos. Ideal para quem está dando os primeiros passos e precisa de um norte claro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="container">
+      <div class="section-label">Como funciona</div>
+      <h2 class="section-title">Um método simples em 5 etapas</h2>
+      <p class="section-sub">Não é uma dieta. É um caminho estruturado para transformar sua relação com a alimentação, o corpo e a autoestima - do início ao resultado.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Entendendo seu ponto de partida</h3>
+            <p>Você descobre qual é o seu perfil alimentar e quais comportamentos estão sabotando os seus resultados - sem julgamento, com clareza.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Reprogramando sua relação com a comida</h3>
+            <p>Aprenda a comer com consciência, eliminar a culpa e entender os sinais do seu próprio corpo. A base para qualquer resultado duradouro.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Montando uma rotina leve e funcional</h3>
+            <p>Estratégias práticas para organizar suas refeições sem complicação - mesmo nos dias mais corridos da semana.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Ativando a consistência no dia a dia</h3>
+            <p>Você aprende como manter o ritmo quando a motivação vai embora - porque é a constância, e não a perfeição, que gera resultado.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3>Celebrando a transformação</h3>
+            <p>Reconhecer a evolução é parte do processo. O método te ensina a valorizar cada conquista - e a continuar avançando com motivação real.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="for-whom">
+    <div class="container">
+      <div class="section-label">Para quem é</div>
+      <h2 class="section-title" style="color:#fff;">Este e-book foi feito especialmente para você se…</h2>
+      <p class="section-sub">Você não precisa ser atleta, nutricionista nem ter horas livres. Só precisa querer mudar.</p>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="aud-icon">👩‍💼</div>
+          <h3>Você é uma mulher ocupada</h3>
+          <p>Trabalha, cuida da casa, da família - e no fim do dia não tem energia para dietas complicadas.</p>
+        </div>
+        <div class="audience-card">
+          <div class="aud-icon">🌸</div>
+          <h3>Você é iniciante no emagrecimento</h3>
+          <p>Tentou outras coisas e não funcionou. Ou está começando agora e quer fazer do jeito certo desde o início.</p>
+        </div>
+        <div class="audience-card">
+          <div class="aud-icon">🚫</div>
+          <h3>Você está cansada de dietas restritivas</h3>
+          <p>Já ficou sem comer carboidrato, sem glúten, sem sabor - e voltou tudo. Quer uma solução que seja real e sustentável.</p>
+        </div>
+        <div class="audience-card">
+          <div class="aud-icon">💫</div>
+          <h3>Você quer mais do que um número na balança</h3>
+          <p>Quer se sentir bem, com energia, autoestima e saúde - não só ver o ponteiro descer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="what-you-get">
+    <div class="container">
+      <div class="section-label">O que você vai receber</div>
+      <h2 class="section-title">Tudo que você precisa para começar hoje</h2>
+      <p class="section-sub">Um conteúdo completo, direto ao ponto e fácil de aplicar - organizado para você ir do zero à transformação com confiança.</p>
+      <div class="deliverables">
+        <div class="deliverable">
+          <div class="check">✓</div>
+          <div>
+            <h4>Guia de mentalidade e autoconhecimento</h4>
+            <p>Entenda os gatilhos emocionais que afetam sua alimentação e aprenda a quebrá-los com leveza.</p>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="check">✓</div>
+          <div>
+            <h4>Plano alimentar flexível e sem restrições extremas</h4>
+            <p>Um modelo adaptável ao seu estilo de vida, sem proibições absolutas e sem sofrimento.</p>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="check">✓</div>
+          <div>
+            <h4>Estratégias para dias difíceis</h4>
+            <p>O que fazer quando bater a vontade de desistir - e como retomar o ritmo sem culpa.</p>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="check">✓</div>
+          <div>
+            <h4>Checklist de hábitos diários leves</h4>
+            <p>Pequenas ações que, repetidas com consistência, geram grandes resultados ao longo do tempo.</p>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="check">✓</div>
+          <div>
+            <h4>Capítulo sobre movimento sem academia</h4>
+            <p>Como incluir atividade física de forma simples e prazerosa na rotina - mesmo sem tempo ou dinheiro.</p>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="check">✓</div>
+          <div>
+            <h4>Seção de receitas práticas e saborosas</h4>
+            <p>Receitas fáceis de preparar, nutritivas e gostosas - para provar que comer bem não precisa ser sem graça.</p>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="check">✓</div>
+          <div>
+            <h4>Roteiro de 47 dias guiado</h4>
+            <p>Um guia dia a dia para você construir os hábitos certos, no ritmo certo, sem se sentir perdida.</p>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="check">✓</div>
+          <div>
+            <h4>Acesso vitalício e em qualquer dispositivo</h4>
+            <p>Leia no celular, tablet ou computador - o conteúdo fica com você para sempre.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION -->
+  <section class="transformation">
+    <div class="container">
+      <div class="section-label">Antes e depois</div>
+      <h2 class="section-title">Uma mudança que começa por dentro</h2>
+      <p class="section-sub">O Método Leve 47 não transforma só o corpo. Ele transforma a sua relação com a comida, consigo mesma e com a vida.</p>
+      <div class="transform-grid">
+        <div class="transform-col before">
+          <h3>❌ Antes do método</h3>
+          <ul>
+            <li>Dietas que duram uma semana</li>
+            <li>Culpa depois de comer</li>
+            <li>Sem energia e sem foco</li>
+            <li>Não sabe por onde começar</li>
+            <li>Cansada de tentar e falhar</li>
+            <li>Autoestima abalada</li>
+            <li>Come por ansiedade e emoção</li>
+          </ul>
+        </div>
+        <div class="transform-col after">
+          <h3>✅ Com o Método Leve 47</h3>
+          <ul>
+            <li>Hábitos sustentáveis que ficam</li>
+            <li>Relação leve e saudável com a comida</li>
+            <li>Mais energia, leveza e disposição</li>
+            <li>Um caminho claro e estruturado</li>
+            <li>Consistência sem perfeição</li>
+            <li>Autoestima e confiança renovadas</li>
+            <li>Controle emocional e alimentar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-label">Depoimentos reais</div>
+      <h2 class="section-title">Mulheres reais. Resultados reais.</h2>
+      <p class="section-sub">Elas também duvidaram no começo. Hoje são a prova de que um método simples, seguido com consistência, transforma de verdade.</p>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testimonial-text">"Eu tentei de tudo - low carb, jejum, termogênico - e nada ficava. Com o Método Leve 47 eu finalmente entendi o meu corpo. Em 47 dias já sentia uma diferença enorme na disposição e na minha relação com a comida. Não é milagre, é consistência."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩</div>
+            <div class="author-info">
+              <strong>Camila R.</strong>
+              <span>Professora, 34 anos - São Paulo, SP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testimonial-text">"Sou mãe de dois filhos, trabalho o dia todo e mal tenho tempo pra mim. Achei que emagrecer não era pra mim. O e-book me mostrou que dá, sim - com pequenos passos e sem abrir mão da vida. Recomendo de olhos fechados."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩‍🦱</div>
+            <div class="author-info">
+              <strong>Fernanda L.</strong>
+              <span>Empreendedora, 41 anos - Curitiba, PR</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testimonial-text">"O que me conquistou foi a honestidade do método. Sem prometer milagre, sem dieta doida. Aprendi a comer melhor, dormir melhor e me sentir melhor. A balança foi consequência - o que ficou foi o estilo de vida."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">🧕</div>
+            <div class="author-info">
+              <strong>Juliana M.</strong>
+              <span>Analista financeira, 29 anos - Belo Horizonte, MG</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testimonial-text">"Nunca fui de dieta e sempre me senti perdida quando tentava emagrecer. O roteiro de 47 dias foi um divisor de águas pra mim. Cada dia com um pequeno objetivo - isso fez toda a diferença na minha motivação."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩‍🦰</div>
+            <div class="author-info">
+              <strong>Patrícia S.</strong>
+              <span>Enfermeira, 37 anos - Fortaleza, CE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testimonial-text">"Minha autoestima voltou. Isso vale mais do que qualquer número na balança. O método me ensinou a me cuidar sem punição. Hoje me olho no espelho e me reconheço de novo - mais leve por dentro e por fora."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩‍🦳</div>
+            <div class="author-info">
+              <strong>Renata C.</strong>
+              <span>Administradora, 45 anos - Porto Alegre, RS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testimonial-text">"Li o e-book em dois dias e já comecei a aplicar no terceiro. A linguagem é simples, sem enrolação. Em menos de um mês já tinha mais energia pra trabalhar e brincar com minha filha. Vale muito mais do que o investimento."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">🧑‍💻</div>
+            <div class="author-info">
+              <strong>Mariana T.</strong>
+              <span>Designer freelancer, 31 anos - Recife, PE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SOCIAL PROOF SUMMARY -->
+      <div class="testimonials-summary">
+        <div class="summary-stat">
+          <span class="stat-num">4.9★</span>
+          <span class="stat-label">Avaliação média</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-stat">
+          <span class="stat-num">2.300+</span>
+          <span class="stat-label">Mulheres transformadas</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-stat">
+          <span class="stat-num">97%</span>
+          <span class="stat-label">Recomendariam a uma amiga</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-stat">
+          <span class="stat-num">47 dias</span>
+          <span class="stat-label">Para uma nova rotina</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <h2>Você está a um passo de começar a sua transformação</h2>
+      <p>Invista em você hoje. Acesso imediato, pagamento seguro e um método que respeita a sua vida real.</p>
+      <div class="price-box">
+        <div class="from">De R$ 97,00</div>
+        <div class="to"><small>R$&nbsp;</small>47<small>,00</small></div>
+        <div class="once">Pagamento único • Sem assinatura</div>
+      </div>
+      <br/>
+      <a href="#" class="btn btn-lg btn-pulse">✨ Quero meu acesso agora</a>
+      <div class="cta-trust">
+        <span>🔒 Pagamento 100% seguro</span>
+        <span>📲 Acesso imediato</span>
+        <span>♾️ Acesso vitalício</span>
+        <span>📱 Funciona em qualquer dispositivo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="container">
+      <div class="section-label">Sua segurança em primeiro lugar</div>
+      <h2 class="section-title">Compre com total tranquilidade</h2>
+      <p class="section-sub">Cada detalhe foi pensado para que você se sinta segura na sua decisão.</p>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="t-icon">🔐</div>
+          <h4>Pagamento criptografado</h4>
+          <p>Seus dados financeiros são protegidos com a mais alta tecnologia de segurança disponível.</p>
+        </div>
+        <div class="trust-item">
+          <div class="t-icon">⚡</div>
+          <h4>Acesso imediato</h4>
+          <p>Assim que o pagamento for confirmado, o e-book estará disponível para você acessar - na hora.</p>
+        </div>
+        <div class="trust-item">
+          <div class="t-icon">♾️</div>
+          <h4>Acesso vitalício</h4>
+          <p>Você não perde o conteúdo. Ele fica disponível para sempre, podendo ser acessado quando e quantas vezes quiser.</p>
+        </div>
+        <div class="trust-item">
+          <div class="t-icon">💌</div>
+          <h4>Suporte disponível</h4>
+          <p>Algum problema com o acesso? Nossa equipe está aqui para te ajudar com rapidez e atenção.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-label">Dúvidas frequentes</div>
+      <h2 class="section-title">Respondendo o que você precisa saber</h2>
+      <p class="section-sub">Ficou com alguma dúvida? Aqui estão as respostas mais comuns antes da compra.</p>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O e-book é físico ou digital?
+            <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">O Método Leve 47 é 100% digital. Após a confirmação do pagamento, você recebe o acesso imediatamente - sem esperar entrega, sem frete, sem complicação. Pode ler no celular, tablet ou computador.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Preciso ter experiência com dietas para seguir o método?
+            <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">Não! O método foi criado justamente para iniciantes. A linguagem é simples, o passo a passo é claro e tudo foi pensado para quem está começando do zero - sem conhecimento técnico de nutrição ou fitness.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Vou precisar comprar suplementos ou produtos especiais?
+            <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">Absolutamente não. O Método Leve 47 não indica nem exige nenhum suplemento, produto ou alimento especial. Tudo o que você vai aprender pode ser aplicado com o que você já tem na sua cozinha do dia a dia.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Em quanto tempo verei resultados?
+            <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">Os resultados variam de pessoa para pessoa - e o método é honesto quanto a isso. Mudanças de hábito levam tempo, e é exatamente por isso que criamos um roteiro de 47 dias: para que você construa uma base sólida e veja progresso real e consistente, sem promessas mágicas.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            E se eu não tiver muito tempo no dia para seguir o método?
+            <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">O método foi criado para mulheres com rotinas cheias. Nenhuma das estratégias exige horas de dedicação. São pequenas ações consistentes - que cabem até nos dias mais corridos da semana.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como funciona o pagamento?
+            <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">O pagamento é único, sem assinatura. Você paga apenas R$ 47,00 e tem acesso vitalício ao conteúdo. Aceitamos cartão de crédito, débito, Pix e boleto bancário - tudo em ambiente 100% seguro e criptografado.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            E se eu tiver dificuldade para acessar o e-book?
+            <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">Não se preocupe. Nossa equipe de suporte está disponível para te ajudar. Assim que a compra for concluída, você receberá um e-mail com as instruções de acesso. Em caso de qualquer dúvida, é só nos contatar e resolvemos rapidinho.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="cta-section" style="padding: 60px 20px;">
+    <div class="container">
+      <h2 style="font-size: clamp(1.5rem,3.5vw,2.2rem);">Sua transformação começa com uma decisão simples.</h2>
+      <p>Não precisa ser perfeita. Precisa começar.</p>
+      <a href="#cta" class="btn btn-lg" style="background:#fff; color: var(--green-dark);">✨ Quero meu acesso por R$ 47,00</a>
+      <div class="cta-trust" style="margin-top:20px;">
+        <span>🔒 Compra segura</span>
+        <span>⚡ Acesso imediato</span>
+        <span>♾️ Vitalício</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Método Leve 47</strong> - E-Book Digital</p>
+    <p style="margin-top:6px;">© 2025 Método Leve 47. Todos os direitos reservados.</p>
+    <p style="margin-top:8px; font-size:0.72rem; max-width:600px; margin-left:auto; margin-right:auto; line-height:1.7;">
+      Este produto é um e-book digital de cunho educacional sobre hábitos alimentares saudáveis. Os resultados podem variar de pessoa para pessoa. As informações contidas neste material não substituem acompanhamento médico ou nutricional profissional.
+    </p>
+  </footer>
+
+  <!-- FAQ JS -->
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
